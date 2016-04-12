@@ -13,8 +13,7 @@
     	<div class="col-sm-12">
         <div class="input_like_div heading">ACTIVE USERS</div>
 <?php
-$sql = "SELECT * FROM $tbl_usr "; 
-$result = mysqli_query($conn,$sql);
+$result = mysqli_query($conn,$sqlMembers);
 while($row = mysqli_fetch_array($result)) {
 ?>
 <div class="input_like_div"><i class="fa fa-user"></i> 

@@ -1,11 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <HEAD>
 <TITLE>CLAD Wear The Best</TITLE>
 <?php include 'head.php';?>
 </HEAD>
 <BODY>
-  <?php include 'nav.php';?>
+<?php include 'nav.php';?>
 <div class="container">
   <div class="row">
     <div class="add col-sm-4 hide-mobile">
@@ -56,30 +57,10 @@
         <div id="imagePreview"></div>
         <input id="uploadFile" type="file" name="image" class="inputFile" required="required" title="Upload File" />
         <input type="submit" value="Add Product" class="btnSubmit" title="Add Product" />
-       <input type="text" id="user_id" name="user_id" placeholder="" required="required" title="" value="<?php echo $_SESSION['login_user'];?>" /></form>
+        <input type="text" id="user_id" name="user_id" placeholder="" required="required" title="" value="<?php echo $_SESSION['login_user'];?>" />
+      </form>
     </div>
     <div class="search col-sm-4"> 
-      <script>
-$(document).ready(function(){
-        $.post('getall.php',function(value){
-            $('#tab').html(value);
-        });
-        
-        $('#filterfield').keyup(function(){
-        var data = $(this).val();
-        if($('#filterfield').val() === ''){
-           $.post('getall.php',function(value){
-            $('#tab').html(value);
-        }); 
-        }    
-        else{
-            $.post('get.php',{data:data},function(value){
-                $('#tab').html(value);
-            });
-        }
-        });
-    });
-</script>
       <input title="Search by Product ID, Product Name, Color, Size" type="text" id="filterfield" class="inputs" placeholder="Search Product, Color, Size"/>
       <div id="tab"></div>
     </div>
@@ -87,8 +68,7 @@ $(document).ready(function(){
       <div class="heading" title="Critical Inventory with quantity 2 or less">CRITICAL INVENTORY - QTY 2 OR LESS</div>
       <?php
 include 'dbconnect.php';
-$sql = "SELECT * FROM $tbl_pdt where qty between 1 and 2 order by qty ASC"; 
-$result = mysqli_query($conn,$sql);
+$result = mysqli_query($conn,$sqlAdminhome);
 while($row = mysqli_fetch_array($result)) {
 
 ;?>
@@ -102,7 +82,7 @@ mysqli_close($conn);
     </div>
   </div>
 </div>
-<footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<footer> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 </footer>
 <?php include 'footer.php';?>

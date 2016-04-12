@@ -9,10 +9,9 @@
 <?php include 'dbconnect.php';?>
 <div class="container">
   <div class="row">
-    <div id="alternating-content" class="col-sm-12">
+    <div id="alternating-content" class="">
       <?php
-$sql = "SELECT * FROM $tbl_pdt where qty >=1 and active_flag='1' ORDER BY product_id DESC"; 
-$result = mysqli_query($conn,$sql);
+$result = mysqli_query($conn,$sqlAllproduct);
 while($row = mysqli_fetch_array($result)) {
 ?>
       <?php $url=$row["product_id"];

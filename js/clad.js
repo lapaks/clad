@@ -1,4 +1,52 @@
 
+//search get.php getall.php
+$(document).ready(function(){
+        $.post('getall.php',function(value){
+            $('#tab').html(value);
+        });
+        
+        $('#filterfield').keyup(function(){
+        var data = $(this).val();
+        if($('#filterfield').val() === ''){
+           $.post('getall.php',function(value){
+            $('#tab').html(value);
+        }); 
+        }    
+        else{
+            $.post('get.php',{data:data},function(value){
+                $('#tab').html(value);
+            });
+        }
+        });
+    });
+
+//
+$(document).ready(function(){
+        $("#make_sale").hide();
+    $("#btn_sale").click(function(){
+        $("#make_sale").toggle("slow");
+    //  $("#qty").focus();
+        
+    });
+});
+
+
+$(document).ready(function(){
+       // $("#cancel").hide();
+    $("#cancel").click(function(){
+        $("#qty, #sellamt, #result, #difference, #sold_to, #sale_remarks").val("");
+
+        $("#make_sale").hide("fast");
+    });
+});
+
+$(document).ready(function(){
+    $('.confirmation').on('click', function () {
+        return confirm('You are about to delete a product! Are you sure?');
+    });
+});
+
+
 //form validation sales update
 function validateForm() {
     var x = document.forms["frmImage"]["sale_qty"].value;

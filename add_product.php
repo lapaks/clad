@@ -1,11 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <HEAD>
 <TITLE>CLAD Add Product</TITLE>
 <?php include 'head.php';?>
 </HEAD>
 <BODY>
-  <?php include 'nav.php';?>
+<?php include 'nav.php';?>
 <div class="container">
   <div class="row">
     <div class="add col-sm-4">
@@ -56,11 +57,9 @@
         <div id="imagePreview"></div>
         <input id="uploadFile" type="file" name="image" class="inputFile" required="required" title="Upload File" />
         <input type="submit" value="Add Product" class="btnSubmit" title="Add Product" />
-       <input type="text" id="user_id" name="user_id" placeholder="" required="required" title="" value="<?php echo $_SESSION['login_user'];?>" /></form>
+        <input type="text" id="user_id" name="user_id" placeholder="" required="required" title="" value="<?php echo $_SESSION['login_user'];?>" />
+      </form>
     </div>
   </div>
 </div>
-<footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-</footer>
 <?php include 'footer.php';?>

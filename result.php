@@ -1,51 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <HEAD>
 <TITLE>CLAD Search Result</TITLE>
 <?php include 'head.php';?>
 <script>
-$(document).ready(function(){
-	    $("#make_sale").hide();
-    $("#btn_sale").click(function(){
-        $("#make_sale").toggle("slow");
-	//	$("#qty").focus();
-		
-    });
-});
-</script>
-<script>
-$(document).ready(function(){
-	   // $("#cancel").hide();
-    $("#cancel").click(function(){
-		$("#qty, #sellamt, #result, #difference, #sold_to, #sale_remarks").val("");
-
-        $("#make_sale").hide("fast");
-    });
-});
-</script>
-
-<script>
-$(document).ready(function(){
-    $('.confirmation').on('click', function () {
-        return confirm('You are about to delete a product! Are you sure?');
-    });
-});
-</script>
-
-
-
-<script>
 </script>
 </HEAD>
 <BODY>
-
-
-
 <?php include 'nav.php';?>
 <?php include 'dbconnect.php';?>
 <?php
-$sql = "SELECT * FROM $tbl_pdt where product_id='" . $_GET['id'] . "' and qty >0"; 
-$result = mysqli_query($conn,$sql);
+$sqlResult = "SELECT * FROM $tbl_pdt where product_id='" . $_GET['id'] . "' and qty >0"; 
+$result = mysqli_query($conn,$sqlResult);
 while($row = mysqli_fetch_array($result)) {
 ?>
 <?php $url=$row["product_id"];
@@ -53,63 +20,48 @@ $encode_url=urlencode($url);
 ?>
 <div class="container">
   <div class="row">
-    
-
-      <div class="result_img col-sm-6" > 
-      <img class="image" src="imageview.php?image_id=<?php echo $encode_url; ?>" onerror="this.src='img/not-available.jpg';" />
-      </div>
-        <div class="result_details col-sm-6">
-        <div class="toggle_div">
-      <div id="make_sale" class="">
-        <form name="frmImage" enctype="multipart/form-data" onsubmit="return validateForm()" action="update_sales.php" method="post" class="frmImageUpload">
-          <input id="product_id_sale" type="text" name="product_id" placeholder="" required="required" value="<?php echo $_GET['id'];?>" title="Product ID"  />
-
-          <input id="product_qty" type="text" min="1" name="qty" placeholder="" required="required" value="<?php echo $row['qty'];?>" title="Quantity"  />
-          
-          <input id="qty" type="number" min="1" name="sale_qty" placeholder="How Many Sold ? *" required="required"  oninput="calculate()" title="Total Sales Count" />
-
-          <input id="sellamt" type="number" min="1" name="sale_amount" placeholder="Total Sales Amount *" required="required" oninput="calculate()" title="Total Sales Amount" />
-          <input id="result" type="number" min="0" name="total_item_cost" placeholder="Total Cost" required="required" disabled="disabled" title="Actual Total Cost" />
-          <input id="difference" type="number"  name="gain_loss" step="any" placeholder="Difference" required="required"  title="Gain/Loss" disabled="disabled"  />
-          <input type="text" name="sold_to" id="sold_to" placeholder="Sold To *" required="required" title="Sold To" />
-          <input type="text" id="user_id" name="user_id" placeholder="" required="required" title="" value="<?php echo $_SESSION['login_user'];?>" />
-          <input type="text" name="sale_remarks" id="sale_remarks" placeholder="Remarks"  title="Remarks" /><br />
-
-          <input type="submit" value="Update" class="btnUpdate" title="Update" />
-           <input type="reset" id="cancel" value="Cancel" class="btnCancel" title="Cancel" style="float:right"/>
-           
-          <input type="text" value="Only <?php echo $row['qty'];?> items remaining. Please check stock!" class="error" title="" />
-          <input type="text" value="F***K MAN ! WHY WOULD YOU SELL AT A LOSS?" class="error_sp" title="" />
-          <input id="cp" type="number" name="test" value=<?php echo $row["cost_price"];?> />
-        </form>
-      </div>
-    </div>
-          <div class="input_like_div"><span id="product_label">Product ID : </span><?php echo $row["product_id"];?><a href="update_products.php?id=<?php echo $row["product_id"];?>"><i class="fa fa-pencil-square-o" style="float:right; font-size:24px" title="Update Product"></i></a>
-          <a class="confirmation"  href="delete_products.php?id=<?php echo $row["product_id"];?>"><i class="fa fa-trash-o fa-right-margin" style="float:right; font-size:24px" title="Delete Product"></i></a>
-        
-          
-          
-          </div>
-          <div class="input_like_div"><span id="product_label">Product Name : </span><?php echo $row["product_name"];?></div>
-          <div class="input_like_div"><span id="product_label">Design : </span><?php echo $row["design"];?></div>
-          <div class="input_like_div"><span id="product_label">Color : </span><?php echo $row["color"];?></div>
-          <div class="input_like_div"><span id="product_label">Cost Price : </span><img src="img/rupee_small.png" /><?php echo $row["cost_price"];?></div>
-          <div class="input_like_div"><span id="product_label">Selling Price : </span><img src="img/rupee_small.png" /><?php echo $row["selling_price"];?></div>
-          <div class="input_like_div"><span id="product_label">Discount Allowed : </span><img src="img/rupee_small.png" /><?php echo $row["discount"];?></div>
-          <div class="input_like_div"><span id="product_label">Size : </span><?php echo $row["size"];?></div>
-          <div class="input_like_div"><span id="product_label">Quantity : </span><?php echo $row["qty"];?></div>
-          <input type="submit" value="Sell This Product" id="btn_sale"  class="btnSubmit heading"/>
+    <div class="result_img col-sm-6" > <img class="image" src="imageview.php?image_id=<?php echo $encode_url; ?>" onerror="this.src='img/not-available.jpg';" /> </div>
+    <div class="result_details col-sm-6">
+      <div class="toggle_div">
+        <div id="make_sale" class="">
+          <form name="frmImage" enctype="multipart/form-data" onsubmit="return validateForm()" action="update_sales.php" method="post" class="frmImageUpload">
+            <input id="product_id_sale" type="text" name="product_id" placeholder="" required="required" value="<?php echo $_GET['id'];?>" title="Product ID"  />
+            <input id="product_qty" type="text" min="1" name="qty" placeholder="" required="required" value="<?php echo $row['qty'];?>" title="Quantity"  />
+            <input id="qty" type="number" min="1" name="sale_qty" placeholder="How Many Sold ? *" required="required"  oninput="calculate()" title="Total Sales Count" />
+            <input id="sellamt" type="number" min="1" name="sale_amount" placeholder="Total Sales Amount *" required="required" oninput="calculate()" title="Total Sales Amount" />
+            <input id="result" type="number" min="0" name="total_item_cost" placeholder="Total Cost" required="required" disabled="disabled" title="Actual Total Cost" />
+            <input id="difference" type="number"  name="gain_loss" step="any" placeholder="Difference" required="required"  title="Gain/Loss" disabled="disabled"  />
+            <input type="text" name="sold_to" id="sold_to" placeholder="Sold To *" required="required" title="Sold To" />
+            <input type="text" id="user_id" name="user_id" placeholder="" required="required" title="" value="<?php echo $_SESSION['login_user'];?>" />
+            <input type="text" name="sale_remarks" id="sale_remarks" placeholder="Remarks"  title="Remarks" />
+            <br />
+            <input type="submit" value="Update" class="btnUpdate" title="Update" />
+            <input type="reset" id="cancel" value="Cancel" class="btnCancel" title="Cancel" style="float:right"/>
+            <input type="text" value="Only <?php echo $row['qty'];?> items remaining. Please check stock!" class="error" title="" />
+            <input type="text" value="F***K MAN ! WHY WOULD YOU SELL AT A LOSS?" class="error_sp" title="" />
+            <input id="cp" type="number" name="test" value=<?php echo $row["cost_price"];?> />
+          </form>
         </div>
       </div>
+      <div class="input_like_div"><span id="product_label">Product ID : </span><?php echo $row["product_id"];?><a href="update_products.php?id=<?php echo $row["product_id"];?>"><i class="fa fa-pencil-square-o" style="float:right; font-size:24px" title="Update Product"></i></a> <a class="confirmation"  href="delete_products.php?id=<?php echo $row["product_id"];?>"><i class="fa fa-trash-o fa-right-margin" style="float:right; font-size:24px" title="Delete Product"></i></a> </div>
+      <div class="input_like_div"><span id="product_label">Product Name : </span><?php echo $row["product_name"];?></div>
+      <div class="input_like_div"><span id="product_label">Design : </span><?php echo $row["design"];?></div>
+      <div class="input_like_div"><span id="product_label">Color : </span><?php echo $row["color"];?></div>
+      <div class="input_like_div"><span id="product_label">Cost Price : </span><img src="img/rupee_small.png" /><?php echo $row["cost_price"];?></div>
+      <div class="input_like_div"><span id="product_label">Selling Price : </span><img src="img/rupee_small.png" /><?php echo $row["selling_price"];?></div>
+      <div class="input_like_div"><span id="product_label">Discount Allowed : </span><img src="img/rupee_small.png" /><?php echo $row["discount"];?></div>
+      <div class="input_like_div"><span id="product_label">Size : </span><?php echo $row["size"];?></div>
+      <div class="input_like_div"><span id="product_label">Quantity : </span><?php echo $row["qty"];?></div>
+      <input type="submit" value="Sell This Product" id="btn_sale"  class="btnSubmit heading"/>
+    </div>
   </div>
+</div>
 </div>
 <?php		
 }
 mysqli_close($conn);
 ?>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 <script>
 	$("#qty").focusout(function(){
     if(parseFloat($("#qty").val()) > parseFloat($("#product_qty").val()))
@@ -123,8 +75,7 @@ mysqli_close($conn);
         $(".btnSubmit").prop('disabled',false);        
     }
     
-});</script>
-
+});</script> 
 <script>
 	$("#sellamt").focusout(function(){
     if(parseFloat($("#sellamt").val()) < parseFloat($("#result").val()))

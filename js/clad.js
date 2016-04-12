@@ -90,8 +90,8 @@ function validateFormProduct() {
 		//var diff = document.getElementById('
 		var diff = myBox3 - myResult;
 		var n = diff.toFixed(2);
+		difference_hidden.value=n;
 		difference.value=n;
-		
      }	
 
 

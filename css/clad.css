@@ -1,5 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
+tbody, td, th { border-color: #d3d3d3 !important; font-weight: normal !important; font-size: 14px;}
 .frmImageUpload {margin-bottom: 0px;}
 .frmImageUpload {margin-bottom: 0px;}
 #qty, #sellamt, #result, #difference, #sold_to, #sale_remarks {width: 49%}
@@ -26,7 +27,7 @@ input { text-transform:uppercase;}
 }
 .toggle_div  { padding:0px 0px 5px 0px;}
 .result_img img { width:100%;}
-#cp, #product_id_sale, #product_qty, .error, #user_id, .error_sp, #product_id_hidden { display:none;}
+#cp, #product_id_sale, #product_qty, .error, #user_id, .error_sp, #product_id_hidden, #difference_hidden { display:none;}
 .underline { text-decoration:underline; }
 
 .bs-docs-nav .navbar-toggle .icon-bar {background-color:#fff;}

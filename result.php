@@ -30,7 +30,10 @@ $encode_url=urlencode($url);
             <input id="qty" type="number" min="1" name="sale_qty" placeholder="How Many Sold ? *" required="required"  oninput="calculate()" title="Total Sales Count" />
             <input id="sellamt" type="number" min="1" name="sale_amount" placeholder="Total Sales Amount *" required="required" oninput="calculate()" title="Total Sales Amount" />
             <input id="result" type="number" min="0" name="total_item_cost" placeholder="Total Cost" required="required" disabled="disabled" title="Actual Total Cost" />
-            <input id="difference" type="number"  name="gain_loss" step="any" placeholder="Difference" required="required"  title="Gain/Loss" disabled="disabled"  />
+
+            <input id="difference_hidden" type="number"  name="gain_loss" step="any" placeholder="Difference" required="required"  title="Gain/Loss"/>
+
+            <input id="difference" type="number"  name="gain_loss_hidden" step="any" placeholder="Difference" required="required"  title="Gain/Loss" disabled="disabled"  />
             <input type="text" name="sold_to" id="sold_to" placeholder="Sold To *" required="required" title="Sold To" />
             <input type="text" id="user_id" name="user_id" placeholder="" required="required" title="" value="<?php echo $_SESSION['login_user'];?>" />
             <input type="text" name="sale_remarks" id="sale_remarks" placeholder="Remarks"  title="Remarks" />

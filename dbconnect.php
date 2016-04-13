@@ -39,3 +39,4 @@ $sqlTotalcost = "SELECT active_flag, SUM(cost_price * qty) AS total FROM $tbl_pd
 $sqlQtysold = "SELECT sum(sale_qty) from $tbl_sal"; 
 $sqlSalesproceed = "SELECT sum(sale_amount) from $tbl_sal"; 
 $sqlSale = "SELECT * from $tbl_sal"; 
+$sqlDeleted = "SELECT * from $tbl_pdt where active_flag='0'"; 

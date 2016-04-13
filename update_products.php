@@ -12,7 +12,7 @@
 $id = $_GET["id"]?>
 <div class="container">
   <div class="row">
-    <div id="alternating-content" class="col-sm-12">
+    <div id="alternating-content" >
       <?php
 $sql = "SELECT * FROM $tbl_pdt where product_id ='".$_GET["id"]."'"; 
 $result = mysqli_query($conn,$sql);
@@ -72,6 +72,7 @@ $encode_url=urlencode($url);
           Quantity
           <input class="qty" type="number" min="0" name="qty" value="<?php echo $row["qty"];?>" placeholder="Quantity"  title="Quantity" required="required" />
           <br />
+           <input type="text" id="user_id" name="user_id" placeholder="" required="required" title="" value="<?php echo $_SESSION['login_user'];?>" />
           <div id="imagePreview" title="Choose an Image"></div>
           <div id="imagePreviewEdit"><img class="" title="Existing Image" src="imageview.php?image_id=<?php echo $encode_url; ?>" onerror="this.src='img/not-available.jpg';" /></div>
           <input id="uploadFile" type="file" name="image" class="inputFile" title="Upload File" />

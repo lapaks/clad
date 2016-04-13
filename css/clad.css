@@ -13,7 +13,8 @@ img[src='Error.src']{
     display: none;
 }
 .red { color: #C90708 }
-.error, .error_sp { width:100%; background-color:#C90708; color:#fff !important;}
+.error, .error_sp, #outofstock { width:100%; background-color:#C90708; color:#fff !important;}
+#outofstock { padding: 10px 10px 10px 10px; text-align: center; }
 input { text-transform:uppercase;}
 .green { background-color:green;}
 .red { background-color:red;}

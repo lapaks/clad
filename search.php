@@ -11,7 +11,7 @@
 	<div class="row">
     	<div class="col-sm-12">
 
-      <input title="Search by Name, Address, Mobile No, Group" type="text" id="filterfield" class="" placeholder="Search Name, Address, Group"/>
+      <input title="Search by Name, Address, Mobile No, Group" type="text" id="filterfield" class="" placeholder="Search Product, Color, Size"/>
       <div id="tab"></div>
     </div>
 </div>      

@@ -15,6 +15,7 @@ $selling_price = mysqli_real_escape_string($conn,strtoupper($_POST['selling_pric
 $discount = mysqli_real_escape_string($conn,strtoupper($_POST['discount']));
 $size = mysqli_real_escape_string($conn,strtoupper($_POST['size']));
 $qty = mysqli_real_escape_string($conn,strtoupper($_POST['qty']));
+$user_id = mysqli_real_escape_string($conn,strtoupper($_POST['user_id']));
 $sql = "update product set 
 product_name = '$product_name',
 design = '$design',
@@ -26,7 +27,9 @@ size = '$size',
 qty ='$qty',
 product_img = '{$product_img}', 
 img_type='{$imageProperties['mime']}',
-active_flag='1'
+active_flag='1',
+date_modified =NOW(),
+modified_by ='$user_id'
 where product_id = '$product_id'";
 
 $current_id = mysqli_query($conn,$sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
@@ -48,6 +51,7 @@ $selling_price = mysqli_real_escape_string($conn,strtoupper($_POST['selling_pric
 $discount = mysqli_real_escape_string($conn,strtoupper($_POST['discount']));
 $size = mysqli_real_escape_string($conn,strtoupper($_POST['size']));
 $qty = mysqli_real_escape_string($conn,strtoupper($_POST['qty']));
+$user_id = mysqli_real_escape_string($conn,strtoupper($_POST['user_id']));
 
 $sql = "update product set 
 product_name = '$product_name',
@@ -58,7 +62,10 @@ selling_price ='$selling_price',
 discount ='$discount',
 size = '$size',
 qty ='$qty',
-active_flag='1'
+active_flag='1',
+date_modified =NOW(),
+modified_by ='$user_id'
+
 where product_id = '$product_id'";
 $current_id = mysqli_query($conn,$sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
 if(isset($current_id)) {

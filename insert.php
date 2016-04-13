@@ -30,7 +30,8 @@ qty,
 product_img, 
 img_type, 
 active_flag,
-user_id
+created_by,
+date_create
 )
 VALUES(
 '$product_id',
@@ -45,7 +46,9 @@ VALUES(
 '{$product_img}',
 '{$imageProperties['mime']}',
 '1',
-'$user_id')";
+'$user_id',
+NOW()
+)";
 
 $current_id = mysqli_query($conn,$sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
 if(isset($current_id)) {

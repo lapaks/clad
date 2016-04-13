@@ -15,9 +15,8 @@
       <div class="input_like_div"><a class="" href="rep_soldout.php" target="iframe">SOLD OUT</a></div>
       <div class="input_like_div"><a class="" href="criticalinventory.php" target="iframe">CRITICAL INVENTORY</a></div>
       <div class="input_like_div"><a class="" href="inventorysummary.php" target="iframe">INVENTORY SUMMARY</a></div>
-            <div class="input_like_div"><a class="" href="rep_sales.php" target="iframe">SALES</a></div>
-
-      <div class="input_like_div">SALES</div>
+      <div class="input_like_div"><a class="" href="rep_sales.php" target="iframe">SALES</a></div>
+      <div class="input_like_div"><a class="" href="rep_deletedproduct.php" target="iframe">DELETED PRODUCTS</a></div>
     </div>
     <div class="col-sm-8">
       <iframe src="iframe.php" name="iframe" style="border:none" width="100%" height="100%"></iframe>

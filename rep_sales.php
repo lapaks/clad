@@ -18,7 +18,7 @@ while($row = mysqli_fetch_array($result))
 
 ;?>
     <tr>
-        <td><?php echo $row["product_id"];?></td>
+        <td><a href="result.php?id=<?php echo $row["product_id"];?>" target="_parent"><?php echo $row["product_id"];?></a></td>
         <td><?php echo $row["sale_qty"];?></td>
         <td><?php echo $row["sale_amount"];?></td>
         <td><?php echo $row["gain_loss"];?></td>

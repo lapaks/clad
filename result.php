@@ -11,7 +11,8 @@
 <?php include 'nav.php';?>
 <?php include 'dbconnect.php';?>
 <?php
-$sqlResult = "SELECT * FROM $tbl_pdt where product_id='" . $_GET['id'] . "' and qty >0"; 
+//sqlResult needs $_GET so not included in dbconnect.php
+$sqlResult = "SELECT * FROM $tbl_pdt where product_id='" . $_GET['id'] . "'"; 
 $result = mysqli_query($conn,$sqlResult);
 while($row = mysqli_fetch_array($result)) {
 ?>
@@ -46,7 +47,15 @@ $encode_url=urlencode($url);
           </form>
         </div>
       </div>
-      <div class="input_like_div"><span id="product_label">Product ID : </span><?php echo $row["product_id"];?><a href="update_products.php?id=<?php echo $row["product_id"];?>"><i class="fa fa-pencil-square-o" style="float:right; font-size:24px" title="Update Product"></i></a> <a class="confirmation"  href="delete_products.php?id=<?php echo $row["product_id"];?>"><i class="fa fa-trash-o fa-right-margin" style="float:right; font-size:24px" title="Delete Product"></i></a> </div>
+      <div class="input_like_div"><span id="product_label">Product ID : </span><?php echo $row["product_id"];?>
+      <a href="update_products.php?id=<?php echo $row["product_id"];?>">
+      <i class="fa fa-pencil-square-o" style="float:right; font-size:24px" title="Update Product"></i></a> 
+
+      
+      <a class="confirmation"  href="delete_products.php?id=<?php echo $row["product_id"];?>&amp;userId=<?php echo $_SESSION['login_user'];?>"><i class="fa fa-trash-o fa-right-margin" style="float:right; font-size:24px" title="Delete Product"></i></a>
+
+
+      </div>
       <div class="input_like_div"><span id="product_label">Product Name : </span><?php echo $row["product_name"];?></div>
       <div class="input_like_div"><span id="product_label">Design : </span><?php echo $row["design"];?></div>
       <div class="input_like_div"><span id="product_label">Color : </span><?php echo $row["color"];?></div>
@@ -55,7 +64,22 @@ $encode_url=urlencode($url);
       <div class="input_like_div"><span id="product_label">Discount Allowed : </span><img src="img/rupee_small.png" /><?php echo $row["discount"];?></div>
       <div class="input_like_div"><span id="product_label">Size : </span><?php echo $row["size"];?></div>
       <div class="input_like_div"><span id="product_label">Quantity : </span><?php echo $row["qty"];?></div>
-      <input type="submit" value="Sell This Product" id="btn_sale"  class="btnSubmit heading"/>
+     <?php 
+	 if($row["qty"] == 0) {
+		 echo ("<div id='outofstock' class='input_like_div'>out of stock !</div>
+      <div class='input_like_div'>You can update the quantity. Use UPDATE option.</div>");
+		}
+elseif ($row["active_flag"] == 0) {
+  echo ("DELETED PRODUCTs");
+
+}
+
+else {  
+echo ("<input type='submit' value='Sell This Product' id='btn_sale'  class='btnSubmit heading'/>");}
+		 
+;?>
+			 
+
     </div>
   </div>
 </div>

@@ -3,8 +3,11 @@
 //$con=mysqli_connect("localhost", "root", "","clad1");
 include 'dbconnect.php';
 $product_id = mysqli_real_escape_string($conn,strtoupper($_GET['id']));
+$user = mysqli_real_escape_string($conn,strtoupper($_GET['userId']));
 $sql = "update product set 
-active_flag='0'
+active_flag='0',
+date_modified = NOW(),
+modified_by = '$user'
 where product_id = '$product_id'";
 mysqli_query($conn,$sql);
 

@@ -13,4 +13,4 @@ while($row = mysqli_fetch_array($result)) {
 }
 mysqli_close($conn);
 ?>
-    </div>
+    </div>	

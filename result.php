@@ -48,6 +48,10 @@ $encode_url=urlencode($url);
         </div>
       </div>
       <div class="input_like_div"><span id="product_label">Product ID : </span><?php echo $row["product_id"];?>
+     
+     
+
+     
       <a href="update_products.php?id=<?php echo $row["product_id"];?>">
       <i class="fa fa-pencil-square-o" style="float:right; font-size:24px" title="Update Product"></i></a> 
 

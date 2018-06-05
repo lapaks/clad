@@ -3,8 +3,8 @@ ob_start();
 
 $host="localhost"; // Host name 
 $username="root"; // Mysql username 
-$password=""; // Mysql password 
-$db_name="clad1"; // Database name 
+$password="root"; // Mysql password 
+$db_name="clad"; // Database name 
 $tbl_name="user"; // Table name 
 /*
 

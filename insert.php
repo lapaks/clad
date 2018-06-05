@@ -8,25 +8,19 @@ $product_img =addslashes(file_get_contents($_FILES['image']['tmp_name']));
 $imageProperties = getimageSize($_FILES['image']['tmp_name']);
 $product_id = mysqli_real_escape_string($conn,strtoupper($_POST['product_id']));
 $product_name = mysqli_real_escape_string($conn,strtoupper($_POST['product_name']));
-$design = mysqli_real_escape_string($conn,strtoupper($_POST['design']));
-$color = mysqli_real_escape_string($conn,strtoupper($_POST['color']));
+$category = mysqli_real_escape_string($conn,strtoupper($_POST['category']));
 $cost_price = mysqli_real_escape_string($conn,strtoupper($_POST['cost_price']));
 $selling_price = mysqli_real_escape_string($conn,strtoupper($_POST['selling_price']));
-$discount = mysqli_real_escape_string($conn,strtoupper($_POST['discount']));
-$size = mysqli_real_escape_string($conn,strtoupper($_POST['size']));
-$qty = mysqli_real_escape_string($conn,strtoupper($_POST['qty']));
+$qty = mysqli_real_escape_string($conn,strtoupper($_POST['quantity']));
 $user_id = mysqli_real_escape_string($conn,strtoupper($_POST['user_id']));
 
 $sql = "INSERT INTO product(
 product_id,
 product_name, 
-design, 
-color,
+category,
 cost_price, 
 selling_price, 
-discount, 
-size,
-qty,
+quantity,
 product_img, 
 img_type, 
 active_flag,
@@ -36,12 +30,9 @@ date_create
 VALUES(
 '$product_id',
 '$product_name',
-'$design',
-'$color',
+'$category',
 '$cost_price',
 '$selling_price',
-'$discount',
-'$size',
 '$qty',
 '{$product_img}',
 '{$imageProperties['mime']}',

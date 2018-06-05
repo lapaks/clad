@@ -3,7 +3,10 @@
 
 <HEAD>
 <TITLE>CLAD Wear The Best</TITLE>
-<?php include 'head.php';?>
+<?php 
+include 'head.php';
+include 'dbconnect.php';
+?>
 </HEAD>
 <BODY>
 <?php include 'nav.php';?>
@@ -22,12 +25,15 @@
         <br />
         <select id="category" name="size" title="Select Category" required="required" >
           <option value="" disabled="disabled" selected="selected">SELECT CATEGORY</option>
-          <option value="s">SMALL</option>
-          <option value="m">MEDIUM</option>
-          <option value="l">LARGE</option>
-          <option value="x">X LARGE</option>
-          <option value="25">25</option>
-          <option value="42">42</option>
+            <?php
+            $result = mysqli_query($conn,$sqlCat);
+            while($row = mysqli_fetch_array($result)) {
+            ?>
+              <option value="<?=$row['category_name'];?>"><?=$row['category_name'];?></option>
+            <?php
+            }
+            mysqli_close($conn);
+            ;?>
         </select>
         <br />
         <input class="qty" type="number" min="1" name="quantity" placeholder="Quantity" required="required" title="Quantity" />
@@ -40,13 +46,20 @@
     </div>
 
     <div class="add col-sm-4 hide-mobile">
-      <div class="heading" title="Add Product">ADD CATEGORY</div>
-      <form name="frmImage" enctype="multipart/form-data" onsubmit="return validateFormProduct()" action="insert.php" method="post" class="frmImageUpload">
+      <div class="heading" title="Add Product">ADD CATEGORY
+      
+      
+
+
+
+
+
+
+</div>
+      <form name="frmImage" enctype="multipart/form-data" onsubmit="return validateFormProduct()" action="insert_category.php" method="post" class="frmImageUpload">
         <input type="text" name="cat_id" placeholder="Category ID" required="required" title="Category ID" />
         <br />
         <input type="text" name="cat_name" placeholder="Category Name" required="required" title="Category Name"/>
-        <br />
-        <input class="qty" type="number" min="1" name="quantity" placeholder="Quantity" required="required" title="Quantity" />
         <br />
         <input type="submit" value="Add Product" class="btnSubmit" title="Add Category" />
         <input type="text" id="user_id" name="user_id" placeholder="" required="required" title="" value="<?php echo $_SESSION['login_user'];?>" />
@@ -60,7 +73,6 @@
     <div class="critical_inv col-sm-4 hide-mobile">
       <div class="heading" title="Critical Inventory with quantity 2 or less">CRITICAL INVENTORY - QTY 2 OR LESS</div>
       <?php
-include 'dbconnect.php';
 $result = mysqli_query($conn,$sqlAdminhome);
 while($row = mysqli_fetch_array($result)) {
 

@@ -6,6 +6,7 @@ $password="root"; // Mysql password
 $db_name="clad"; // Database name 
 $tbl_usr="user"; // Table name
 $tbl_pdt="product"; // Table name
+$tbl_cat="category"; // Table name
 $tbl_sal="sales";
 
 /*
@@ -40,3 +41,5 @@ $sqlQtysold = "SELECT sum(sale_qty) from $tbl_sal";
 $sqlSalesproceed = "SELECT sum(sale_amount) from $tbl_sal"; 
 $sqlSale = "SELECT * from $tbl_sal"; 
 $sqlDeleted = "SELECT * from $tbl_pdt where active_flag='0'"; 
+$sqlCat = "SELECT * from $tbl_cat where active_flag='1'"; 
+

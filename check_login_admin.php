@@ -1,19 +1,6 @@
 <?php
 ob_start();
-
-$host="localhost"; // Host name 
-$username="root"; // Mysql username 
-$password="root"; // Mysql password 
-$db_name="clad"; // Database name 
-$tbl_name="user"; // Table name 
-/*
-
-$host="localhost"; // Host name 
-$username="pattake_pattake"; // Mysql username 
-$password="jhg(*&LKHJG#2"; // Mysql password 
-$db_name="pattake_pattake1"; // Database name 
-$tbl_name="user"; // Table name 
-*/
+include 'dbconnect.php';
 
 // Connect to server and select databse.
 $conn=mysqli_connect("$host", "$username", "$password", "$db_name")or die("cannot connect"); 
@@ -30,7 +17,7 @@ $myusername=$_POST['admin_id'];
 $mypassword=$_POST['admin_password']; 
 
 // To protect MySQL injection (more detail about MySQL injection)
-$sql="SELECT * FROM $tbl_name WHERE user_id='$myusername' and password='$mypassword'";
+$sql="SELECT * FROM $tbl_usr WHERE user_id='$myusername' and password='$mypassword'";
 $result = $conn->query($sql);
 
 // Mysql_num_row is counting table row

@@ -1,6 +1,6 @@
 <?php
 //$conn = mysqli_connect("localhost", "pattake_pattake", "jhg(*&LKHJG#2", "pattake_pattake1");
-$conn = mysqli_connect("localhost", "root", "", "clad1");
+$conn = mysqli_connect("localhost", "root", "root", "clad");
 
 if(isset($_GET['image_id'])){
 	

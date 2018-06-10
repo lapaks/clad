@@ -21,13 +21,9 @@ $encode_url=urlencode($url);
         <div class="caption">
          <a href="result.php?id=<?php echo $row["product_id"];?>"> <div class="input_like_div underline"><span id="product_label">Product ID : </span><?php echo $row["product_id"];?></div></a>
           <div class="input_like_div"><span id="product_label">Product Name : </span><?php echo $row["product_name"];?></div>
-          <div class="input_like_div"><span id="product_label">Design : </span><?php echo strtoupper($row["design"]);?></div>
-          <div class="input_like_div"><span id="product_label">Color : </span><?php echo $row["color"];?></div>
           <div class="input_like_div"><span id="product_label">Cost Price : </span><img src="img/rupee_small.png" /><?php echo $row["cost_price"];?></div>
           <div class="input_like_div"><span id="product_label">Selling Price : </span><img src="img/rupee_small.png" /><?php echo $row["selling_price"];?></div>
-          <div class="input_like_div"><span id="product_label">Discount Allowed : </span><img src="img/rupee_small.png" /><?php echo $row["discount"];?></div>
-          <div class="input_like_div"><span id="product_label">Size : </span><?php echo $row["size"];?></div>
-          <div class="input_like_div"><span id="product_label">Quantity : </span><?php echo $row["qty"];?></div>
+          <div class="input_like_div"><span id="product_label">Quantity : </span><?php echo $row["quantity"];?></div>
         </div>
       </div>
       <?php		

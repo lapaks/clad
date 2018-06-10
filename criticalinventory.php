@@ -7,7 +7,12 @@ while($row = mysqli_fetch_array($result)) {
 
 ;?>
       <a href="result.php?id=<?php echo $row["product_id"];?> " target="_parent">
-      <div class="input_like_div">  <?php echo $row["product_id"];?>  <?php echo $row["design"];?>  <?php echo $row["color"];?> <span class="critical_item"><i class="fa fa-exclamation-circle"></i> <?php echo $row["qty"];?> left </div>
+      <div class="input_like_div">
+            <?php echo $row["product_id"];?>  
+            <?php echo $row["product_name"];?>  
+            <span class="critical_item">
+                  <i class="fa fa-exclamation-circle"></i> 
+            <?php echo $row["quantity"];?> left </div>
       </a>
       <?php
 }

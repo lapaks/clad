@@ -28,7 +28,7 @@ input { text-transform:uppercase;}
 }
 .toggle_div  { padding:0px 0px 5px 0px;}
 .result_img img { width:100%;}
-#cp, #product_id_sale, #product_qty, .error, #user_id, .error_sp, #product_id_hidden, #difference_hidden { display:none;}
+#cp, #product_id_sale, #product_qty, .error, #user_id, .error_sp, #product_id_hidden, #cat_id_hidden, #difference_hidden { display:none;}
 .underline { text-decoration:underline; }
 
 .bs-docs-nav .navbar-toggle .icon-bar {background-color:#fff;}
@@ -75,11 +75,26 @@ background-color:#C90708; color:#fff !important;
 	padding: 0px 50px 50px 50px;
 }
 
-.add input, #filterfield, #uploadfile, #size {
+select {
+	-webkit-appearance: none;
+    border-radius: 0;
+	background-color: transparent;
+	background: url('../img/select_arrow.png') no-repeat 98% 50%;
+    -moz-appearance: none;
+    -ms-appearance: none;
+	appearance: none;
+	color: #b2b9bd !important;
+}
+
+.add input, 
+#filterfield, 
+#uploadfile, 
+#size,
+select {
 	color: #00669C;
 	text-transform: uppercase;
-	padding: 5px 5px 5px 5px;
-	margin-bottom: 5px;
+	padding: 5px;
+	margin-bottom: 5px !important;
 	border: 1px solid #d3d3d3;
 	border-radius: 2px;
 	width: 100%
@@ -178,15 +193,15 @@ background-color: #;
 
 
 ::-webkit-input-placeholder {
- color: 00669C;
+ color: #b2b9bd;
 }
 
 :-moz-placeholder { /* Firefox 18- */
- color: 00669C;
+ color: #b2b9bd;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
- color: 00669C;
+ color: #b2b9bd;
 }
 
 :-ms-input-placeholder {

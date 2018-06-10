@@ -3,7 +3,7 @@
     <div class="navbar-header">
       <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <a href="admin_home.php" class="navbar-brand">CLAD</a> </div>
-    <nav id="bs-navbar" class="collapse navbar-collapse">
+    <nav id="bs-navbar" class="collapse navbar-collapse"><?php echo ENVIRONMENT;?>
       <ul class="nav navbar-nav">
         <li> <a href="members.php"><i class="fa fa-users" title="Members"></i></a> </li>
         <li> <a href="add_product.php"><i class="fa fa-plus" title="Add Products"></i></a> </li>

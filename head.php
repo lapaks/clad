@@ -2,9 +2,8 @@
 ini_set('error_reporting', 0);
 ini_set('display_errors', 0);
 session_start();
+include 'settings.php';
 
-?>
-<?php
 if (!isset($_SESSION['login_user'])):
  echo "<script type=\"text/javascript\">
  window.alert('You are either not logged in or your session has expired. Please login/relogin.');
